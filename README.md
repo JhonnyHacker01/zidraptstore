@@ -10,4 +10,3 @@ Este proyecto se basa en la plantilla oficial `basics` de Astro.
 
 ```bash
 npm create astro@latest -- --template basics
-MEJORAR
