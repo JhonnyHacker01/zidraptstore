@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductsGrid from '../../components/ProductsGrid.astro';
+import { getProductById, getRelatedProducts } from '../../data/products';
+import { products } from '../../data/products';
+
+export async function getStaticPaths() {
+  return products.map(product => ({
+    params: { id: product.id }
+  }));
+}
+
+const { id } = Astro.params;
+const product = getProductById(id);
+
+if (!product) {
+  return Astro.redirect('/404');
+}
+
+const relatedProducts = getRelatedProducts(id);
+const title = `${product.name} - Zidrapt Store`;
+---
+
+<Layout title={title}>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- Product Image -->
+        <div class="relative">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            class="w-full rounded-lg shadow-lg object-cover"
+            style="aspect-ratio: 4/3;"
+          />
+          {product.isNew && (
+            <span class="absolute top-4 right-4 bg-accent-500 text-white text-sm font-bold px-3 py-1 rounded">
+              NUEVO
+            </span>
+          )}
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
+          <p class="text-gray-600 mb-6">{product.description}</p>
+          
+          <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <p class="text-2xl font-bold text-primary-600">
+              {new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN' }).format(product.price)}
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Stock disponible: {product.stock} unidades</p>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="font-semibold text-gray-900 mb-3">Características:</h3>
+            <ul class="space-y-2">
+              {product.features.map(feature => (
+                <li class="flex items-center text-gray-600">
+                  <svg class="w-5 h-5 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <a 
+              href={`https://wa.me/51999999999?text=Hola, estoy interesado en el producto: ${product.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full block text-center bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300"
+            >
+              Ordenar por WhatsApp
+            </a>
+            <div class="text-sm text-gray-500 space-y-2">
+              <p class="flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm3.707-11.707a1 1 0 00-1.414 0L11 11.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 000-1.414z"/>
+                </svg>
+                Garantía de 1 año
+              </p>
+              <p class="flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 001.228 0L20 9.044 20.002 18H4z"/>
+                </svg>
+                Factura y boleta electrónica
+              </p>
+              <p class="flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.933 3.06c-5.5 0-9.933 4.433-9.933 9.933s4.433 9.933 9.933 9.933 9.933-4.433 9.933-9.933S17.433 3.06 11.933 3.06zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-.067-13h.134c.431 0 .8.27.8.7v4.8l3.2 1.92c.372.223.497.713.274 1.085-.223.372-.713.497-1.085.274l-3.6-2.16c-.284-.17-.389-.38-.389-.719v-5.2c0-.43.369-.7.8-.7z"/>
+                </svg>
+                Entrega en 30 minutos o según coordinación
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {relatedProducts.length > 0 && (
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Productos Relacionados</h2>
+          <ProductsGrid 
+            category={product.category}
+            limit={4}
+          />
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout>

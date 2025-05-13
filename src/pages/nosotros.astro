@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+
+const title = "Nosotros - Zidrapt Store";
+---
+
+<Layout title={title}>
+  <Header />
+  <main>
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">Sobre Nosotros</h1>
+          <p class="text-lg text-gray-600">
+            En Zidrapt Store nos dedicamos a ofrecer los mejores accesorios tecnológicos con garantía y soporte local en Tocache y Huánuco.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Nuestra Historia</h2>
+            <p class="text-gray-600 mb-4">
+              Iniciamos nuestras operaciones con el objetivo de brindar productos tecnológicos de calidad a precios accesibles, respaldados por un excelente servicio al cliente y soporte técnico especializado.
+            </p>
+            <p class="text-gray-600">
+              Hoy en día, contamos con dos tiendas estratégicamente ubicadas en Tocache y Huánuco, atendiendo a miles de clientes satisfechos en toda la región.
+            </p>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://images.pexels.com/photos/7709087/pexels-photo-7709087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Tienda Zidrapt Store"
+              class="rounded-lg shadow-lg object-cover h-[400px] w-full"
+            />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center p-6 bg-gray-50 rounded-lg">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Calidad Garantizada</h3>
+            <p class="text-gray-600">
+              Todos nuestros productos cuentan con garantía de 1 año contra defectos de fabricación.
+            </p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-lg">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Entrega Rápida</h3>
+            <p class="text-gray-600">
+              Entrega en 30 minutos en zonas cercanas o acordamos día y hora según tu conveniencia.
+            </p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-lg">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Soporte Técnico</h3>
+            <p class="text-gray-600">
+              Asesoría y soporte técnico especializado para ayudarte a elegir el producto adecuado.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <img 
+            src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Productos Tecnológicos"
+            class="rounded-lg shadow-lg object-cover h-64 w-full"
+          />
+          <img 
+            src="https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Servicio al Cliente"
+            class="rounded-lg shadow-lg object-cover h-64 w-full"
+          />
+          <img 
+            src="https://images.pexels.com/photos/4792733/pexels-photo-4792733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Soporte Técnico"
+            class="rounded-lg shadow-lg object-cover h-64 w-full"
+          />
+          <img 
+            src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Equipo Zidrapt"
+            class="rounded-lg shadow-lg object-cover h-64 w-full"
+          />
+        </div>
+      </div>
+    </section>
+    <ContactInfo />
+  </main>
+  <Footer />
+</Layout>

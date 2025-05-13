@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductsGrid from '../components/ProductsGrid.astro';
+import { getCategories } from '../data/products';
+
+const categories = getCategories();
+const title = "Productos - Zidrapt Store";
+---
+
+<Layout title={title}>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">Nuestros Productos</h1>
+      
+      {categories.map(category => (
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-6">{category}</h2>
+          <ProductsGrid category={category} />
+        </div>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>

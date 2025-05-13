@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import ProductsGrid from '../components/ProductsGrid.astro';
+
+const title = "Zidrapt Store - Accesorios Tecnológicos en Tocache y Huánuco";
+---
+
+<Layout title={title}>
+  <Header />
+  <main>
+    <Hero />
+    <ProductsGrid 
+      title="Productos Destacados" 
+      limit={8} 
+    />
+    <Features />
+  </main>
+  <Footer />
+</Layout>

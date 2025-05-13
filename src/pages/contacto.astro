@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+
+const title = "Contacto - Zidrapt Store";
+---
+
+<Layout title={title}>
+  <Header />
+  <main>
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">Contáctanos</h1>
+          <p class="text-lg text-gray-600">
+            Estamos aquí para ayudarte. Contáctanos por cualquiera de nuestros canales de atención.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h2 class="text-xl font-semibold text-gray-900 mb-4">Horario de Atención</h2>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex justify-between">
+                  <span>Lunes - Viernes</span>
+                  <span>9:00 AM - 8:00 PM</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Sábado</span>
+                  <span>9:00 AM - 8:00 PM</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Domingo</span>
+                  <span>Cerrado</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h2 class="text-xl font-semibold text-gray-900 mb-4">Información de Contacto</h2>
+              <ul class="space-y-3">
+                <li>
+                  <a 
+                    href="tel:+51999999999"
+                    class="flex items-center text-gray-600 hover:text-primary-600"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.48 22.926l-1.193.658c-6.979 3.621-19.082-17.494-12.279-21.484l1.145-.637 3.714 6.467-1.139.632c-2.067 1.245 2.76 9.707 4.879 8.545l1.162-.642 3.711 6.461z"/>
+                    </svg>
+                    +51 999 999 999
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:info@zidrapt.com"
+                    class="flex items-center text-gray-600 hover:text-primary-600"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                    </svg>
+                    info@zidrapt.com
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://wa.me/51999999999"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center text-gray-600 hover:text-primary-600"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 class="text-xl font-semibold text-gray-900 mb-4">Tienda Tocache</h2>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15759.880589561586!2d-76.51772983022461!3d-8.184899999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a6012388de2c3d%3A0x7c59fc8f166df46d!2sTocache!5e0!3m2!1ses!2spe!4v1635789012345!5m2!1ses!2spe"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                class="rounded-lg"
+              ></iframe>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold text-gray-900 mb-4">Tienda Huánuco</h2>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15759.880589561586!2d-76.23772983022461!3d-9.931899999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c2f5e2c7c741%3A0x9f7e8b6c5e7c6b0!2sHu%C3%A1nuco!5e0!3m2!1ses!2spe!4v1635789012345!5m2!1ses!2spe"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                class="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <ContactInfo />
+  </main>
+  <Footer />
+</Layout>

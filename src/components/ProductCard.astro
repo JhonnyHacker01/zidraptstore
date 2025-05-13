@@ -1,0 +1,47 @@
+---
+export interface Props {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+  description: string;
+  isNew?: boolean;
+}
+
+const { id, name, price, image, category, description, isNew = false } = Astro.props;
+const formattedPrice = new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN' }).format(price);
+---
+
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+  <div class="relative">
+    <img src={image} alt={name} class="w-full h-48 object-cover" loading="lazy" />
+    {isNew && (
+      <span class="absolute top-2 right-2 bg-accent-500 text-white text-xs font-bold px-2 py-1 rounded">
+        NUEVO
+      </span>
+    )}
+  </div>
+  <div class="p-4">
+    <span class="text-xs text-gray-500 uppercase tracking-wider">{category}</span>
+    <h3 class="font-semibold text-gray-800 mt-1">{name}</h3>
+    <p class="text-sm text-gray-600 mt-2 line-clamp-2">{description}</p>
+    <p class="font-bold text-primary-600 mt-2">{formattedPrice}</p>
+    <div class="mt-4 flex justify-between items-center">
+      <a 
+        href={`/productos/${id}`} 
+        class="inline-flex items-center justify-center px-4 py-2 border border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white rounded transition-colors duration-300"
+      >
+        Ver detalles
+      </a>
+      <a 
+        href={`https://wa.me/51999999999?text=Hola, estoy interesado en el producto: ${name}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded text-sm font-medium transition duration-300"
+      >
+        Ordenar
+      </a>
+    </div>
+  </div>
+</div>

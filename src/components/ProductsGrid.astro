@@ -1,0 +1,47 @@
+---
+import ProductCard from './ProductCard.astro';
+import { products } from '../data/products';
+
+export interface Props {
+  title?: string;
+  category?: string;
+  limit?: number;
+  showNewOnly?: boolean;
+}
+
+const { title, category, limit = products.length, showNewOnly = false } = Astro.props;
+
+let filteredProducts = products;
+
+if (category) {
+  filteredProducts = filteredProducts.filter(product => product.category === category);
+}
+
+if (showNewOnly) {
+  filteredProducts = filteredProducts.filter(product => product.isNew);
+}
+
+filteredProducts = filteredProducts.slice(0, limit);
+---
+
+<section class="py-12">
+  <div class="container mx-auto px-4">
+    {title && (
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">{title}</h2>
+    )}
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {filteredProducts.map(product => (
+        <ProductCard
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          image={product.image}
+          category={product.category}
+          description={product.description}
+          isNew={product.isNew}
+        />
+      ))}
+    </div>
+  </div>
+</section>
